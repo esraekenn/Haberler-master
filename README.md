@@ -1,0 +1,2 @@
+# Haberler
+kendi uygulamam beyaa
