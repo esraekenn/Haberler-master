@@ -80,7 +80,20 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                         .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                Toast.makeText(MainActivity.this, which+"", Toast.LENGTH_SHORT).show();
+                                switch (which){
+                                    case 0:{
+                                        gethaberler(1,25);
+                                        break;
+                                    }
+                                    case 1:{
+                                        gethaberler(1,24);
+                                        break;
+                                    }
+                                    case 2:{
+                                        gethaberler(1,29);
+                                        break;
+                                    }
+                                }
                                 return true;
                             }
                         })
@@ -131,12 +144,17 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(constans.URL).setConverter(new GsonConverter(gson)).setLogLevel(RestAdapter.LogLevel.FULL).build();
         restInterface = restAdapter.create(newsinterface.class);
 
+        gethaberler(1,47);
 
-        restInterface.getNewsList(2,new Callback<Response>() {
+    }
+
+    private void gethaberler(int page,int category){
+        restInterface.getNewsList(page,category,new Callback<Response>() {
             @Override
             public void success(Response jsonObject, retrofit.client.Response response) {
                 jsonObject.getData();
                 NewsSingleton.getInstance().setGetData(jsonObject.getData());
+                newsadapter.clear();
                 newsadapter.updateList(jsonObject.getData());
             }
 

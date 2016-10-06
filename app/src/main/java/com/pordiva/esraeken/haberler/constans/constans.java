@@ -5,5 +5,5 @@ package com.pordiva.esraeken.haberler.constans;
  */
 public class constans
 {
-    public static final String URL ="http://t24.com.tr/api/v3/stories.json?";
+    public static final String URL ="http://t24.com.tr/api/v3";
 }

@@ -67,6 +67,12 @@ public class newsadapter extends RecyclerView.Adapter<newsviewholder> {
         notifyDataSetChanged();
     }
 
+    public void clear()
+    {
+        newsList.clear();
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return newsList.size();

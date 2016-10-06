@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources><string-array name="select_dialog_items">
-    <item>1</item>
-    <item>2</item>
-    <item>3</item>
+    <item>Gündem</item>
+    <item>Politika</item>
+    <item>Magazin</item>
 </string-array></resources>
