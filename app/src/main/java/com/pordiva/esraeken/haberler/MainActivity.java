@@ -74,56 +74,56 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         ivCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new MaterialDialog.Builder(MainActivity.this)
+                MaterialDialog dialog = new MaterialDialog.Builder(MainActivity.this)
                         .title(R.string.title)
                         .items(R.array.select_dialog_items)
                         .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                switch (which){
-                                    case 0:{
+                                switch (which) {
+                                    case 0: {
                                         toolbar.setTitle("Gündem");
-                                        gethaberler(1,25);
+                                        gethaberler(1, 25);
                                         break;
                                     }
-                                    case 1:{
+                                    case 1: {
                                         toolbar.setTitle("Politika");
-                                        gethaberler(1,24);
+                                        gethaberler(1, 24);
                                         break;
                                     }
-                                    case 2:{
+                                    case 2: {
                                         toolbar.setTitle("Magazin");
-                                        gethaberler(1,29);
+                                        gethaberler(1, 29);
                                         break;
                                     }
-                                    case 3:{
+                                    case 3: {
                                         toolbar.setTitle("15 Temmuz Darbe Girişimi");
-                                        gethaberler(1,255);
+                                        gethaberler(1, 255);
                                         break;
                                     }
-                                    case 4:{
+                                    case 4: {
                                         toolbar.setTitle("Dünya");
-                                        gethaberler(1,27);
+                                        gethaberler(1, 27);
                                         break;
                                     }
-                                    case 5:{
+                                    case 5: {
                                         toolbar.setTitle("Ekonomi");
-                                        gethaberler(1,28);
+                                        gethaberler(1, 28);
                                         break;
                                     }
-                                    case 6:{
+                                    case 6: {
                                         toolbar.setTitle("Spor");
-                                        gethaberler(1,23);
+                                        gethaberler(1, 23);
                                         break;
                                     }
-                                    case 7:{
+                                    case 7: {
                                         toolbar.setTitle("Eğitim");
-                                        gethaberler(1,256);
+                                        gethaberler(1, 256);
                                         break;
                                     }
-                                    case 8:{
+                                    case 8: {
                                         toolbar.setTitle("Kültür-Sanat");
-                                        gethaberler(1,19);
+                                        gethaberler(1, 19);
                                         break;
                                     }
 
@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                         })
                         .positiveText("Devamke")
                         .show();
+
+                dialog.setSelectedIndex(25);
             }
         });
 
