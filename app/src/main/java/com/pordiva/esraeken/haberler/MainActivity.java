@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                                 return true;
                             }
                         })
-                        .positiveText("Devamke")
+                        .positiveText("Devam")
                         .show();
 
                 dialog.setSelectedIndex(secilen);
