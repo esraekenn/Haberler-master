@@ -48,7 +48,7 @@ public class newsadapter extends RecyclerView.Adapter<newsviewholder> {
                 .fit()
                 .error(R.mipmap.ic_launcher)
                 .into(holder.image);
-        holder.image.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(c, Detail.class);

@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
     RecyclerView recyclerView;
     TextView title, desc;
     ImageView image;
+    static int secilen;
     private newsinterface restInterface;
     private Context context;
     newsadapter newsadapter;
@@ -84,46 +85,55 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                                     case 0: {
                                         toolbar.setTitle("Gündem");
                                         gethaberler(1, 25);
+                                        secilen=0;
                                         break;
                                     }
                                     case 1: {
                                         toolbar.setTitle("Politika");
                                         gethaberler(1, 24);
+                                        secilen=1;
                                         break;
                                     }
                                     case 2: {
                                         toolbar.setTitle("Magazin");
                                         gethaberler(1, 29);
+                                        secilen=2;
                                         break;
                                     }
                                     case 3: {
                                         toolbar.setTitle("15 Temmuz Darbe Girişimi");
                                         gethaberler(1, 255);
+                                        secilen=3;
                                         break;
                                     }
                                     case 4: {
                                         toolbar.setTitle("Dünya");
                                         gethaberler(1, 27);
+                                        secilen=4;
                                         break;
                                     }
                                     case 5: {
                                         toolbar.setTitle("Ekonomi");
                                         gethaberler(1, 28);
+                                        secilen=5;
                                         break;
                                     }
                                     case 6: {
                                         toolbar.setTitle("Spor");
                                         gethaberler(1, 23);
+                                        secilen=6;
                                         break;
                                     }
                                     case 7: {
                                         toolbar.setTitle("Eğitim");
                                         gethaberler(1, 256);
+                                        secilen=7;
                                         break;
                                     }
                                     case 8: {
                                         toolbar.setTitle("Kültür-Sanat");
                                         gethaberler(1, 19);
+                                        secilen=8;
                                         break;
                                     }
 
@@ -134,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                         .positiveText("Devamke")
                         .show();
 
-                dialog.setSelectedIndex(25);
+                dialog.setSelectedIndex(secilen);
             }
         });
 
