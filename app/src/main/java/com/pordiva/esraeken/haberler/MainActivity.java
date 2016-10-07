@@ -82,17 +82,51 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
                                 switch (which){
                                     case 0:{
+                                        toolbar.setTitle("Gündem");
                                         gethaberler(1,25);
                                         break;
                                     }
                                     case 1:{
+                                        toolbar.setTitle("Politika");
                                         gethaberler(1,24);
                                         break;
                                     }
                                     case 2:{
+                                        toolbar.setTitle("Magazin");
                                         gethaberler(1,29);
                                         break;
                                     }
+                                    case 3:{
+                                        toolbar.setTitle("15 Temmuz Darbe Girişimi");
+                                        gethaberler(1,255);
+                                        break;
+                                    }
+                                    case 4:{
+                                        toolbar.setTitle("Dünya");
+                                        gethaberler(1,27);
+                                        break;
+                                    }
+                                    case 5:{
+                                        toolbar.setTitle("Ekonomi");
+                                        gethaberler(1,28);
+                                        break;
+                                    }
+                                    case 6:{
+                                        toolbar.setTitle("Spor");
+                                        gethaberler(1,23);
+                                        break;
+                                    }
+                                    case 7:{
+                                        toolbar.setTitle("Eğitim");
+                                        gethaberler(1,256);
+                                        break;
+                                    }
+                                    case 8:{
+                                        toolbar.setTitle("Kültür-Sanat");
+                                        gethaberler(1,19);
+                                        break;
+                                    }
+
                                 }
                                 return true;
                             }
