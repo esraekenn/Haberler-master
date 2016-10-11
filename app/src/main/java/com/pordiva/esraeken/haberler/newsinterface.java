@@ -4,7 +4,6 @@ import com.pordiva.esraeken.haberler.model.Response;
 
 import retrofit.Callback;
 import retrofit.http.GET;
-import retrofit.http.Path;
 import retrofit.http.Query;
 
 /**

@@ -1,11 +1,13 @@
 package com.pordiva.esraeken.haberler.model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by esraeken on 06/09/16.
  */
 
-public class Data
-
+public class Data extends RealmObject
 {
     public String getId() {
         return id;
@@ -14,7 +16,7 @@ public class Data
     public void setId(String id) {
         this.id = id;
     }
-
+    @PrimaryKey
     private String id;
 
     public String getTitle() {

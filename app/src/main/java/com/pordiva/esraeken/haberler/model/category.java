@@ -1,9 +1,12 @@
 package com.pordiva.esraeken.haberler.model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by esraeken on 23/09/16.
  */
-public class category
+public class category extends RealmObject
 {
     public String getId() {
         return id;
@@ -29,6 +32,7 @@ public class category
         this.alias = alias;
     }
 
+    @PrimaryKey
     public String id;
     public String name;
     public String alias;

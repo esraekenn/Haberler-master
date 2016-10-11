@@ -1,11 +1,15 @@
 package com.pordiva.esraeken.haberler.model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by esraeken on 08/09/16.
  */
-public class Images
+public class Images extends RealmObject
 {
 
+    @PrimaryKey
     public String list;
 
     public String getList() {
