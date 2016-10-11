@@ -1,2 +1,2 @@
 # Haberler
-kendi uygulamam beyaa
+:')
