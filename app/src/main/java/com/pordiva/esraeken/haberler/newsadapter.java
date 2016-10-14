@@ -69,7 +69,7 @@ public class newsadapter extends RecyclerView.Adapter<newsviewholder> {
 
     public void clear()
     {
-        newsList.clear();
+        newsList=new ArrayList<>();
         notifyDataSetChanged();
     }
 

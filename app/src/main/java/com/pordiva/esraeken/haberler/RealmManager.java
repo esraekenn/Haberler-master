@@ -40,6 +40,8 @@ public class RealmManager {
     public RealmResults<Data> getData(){
         return realm.where(Data.class).findAll();
     }
+
+
   /*  public RealmResults<ModelRealm_DestinasyonDetay>  getDestinationDetailWithRewriteName(String rewriteName){
         return realm.where(ModelRealm_DestinasyonDetay.class).equalTo("rewrite_name",rewriteName).findAll();
     }*/

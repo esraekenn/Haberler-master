@@ -39,7 +39,7 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.converter.GsonConverter;
 
-public class MainActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener{
+public class MainActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener {
     private Toolbar toolbar;
     RecyclerView recyclerView;
     TextView title, desc;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         desc = (TextView) findViewById(R.id.textView2);
         image = (ImageView) findViewById(R.id.imageView2);
         picasso = Picasso.with(MainActivity.this);
-        realmManager=new RealmManager();
+        realmManager = new RealmManager();
 
 
         ivCategory.setOnClickListener(new View.OnClickListener() {
@@ -91,55 +91,55 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                                     case 0: {
                                         toolbar.setTitle("Gündem");
                                         gethaberler(1, 25);
-                                        secilen=0;
+                                        secilen = 0;
                                         break;
                                     }
                                     case 1: {
                                         toolbar.setTitle("Politika");
                                         gethaberler(1, 24);
-                                        secilen=1;
+                                        secilen = 1;
                                         break;
                                     }
                                     case 2: {
                                         toolbar.setTitle("Magazin");
                                         gethaberler(1, 29);
-                                        secilen=2;
+                                        secilen = 2;
                                         break;
                                     }
                                     case 3: {
                                         toolbar.setTitle("15 Temmuz Darbe Girişimi");
                                         gethaberler(1, 255);
-                                        secilen=3;
+                                        secilen = 3;
                                         break;
                                     }
                                     case 4: {
                                         toolbar.setTitle("Dünya");
                                         gethaberler(1, 27);
-                                        secilen=4;
+                                        secilen = 4;
                                         break;
                                     }
                                     case 5: {
                                         toolbar.setTitle("Ekonomi");
                                         gethaberler(1, 28);
-                                        secilen=5;
+                                        secilen = 5;
                                         break;
                                     }
                                     case 6: {
                                         toolbar.setTitle("Spor");
                                         gethaberler(1, 23);
-                                        secilen=6;
+                                        secilen = 6;
                                         break;
                                     }
                                     case 7: {
                                         toolbar.setTitle("Eğitim");
                                         gethaberler(1, 256);
-                                        secilen=7;
+                                        secilen = 7;
                                         break;
                                     }
                                     case 8: {
                                         toolbar.setTitle("Kültür-Sanat");
                                         gethaberler(1, 19);
-                                        secilen=8;
+                                        secilen = 8;
                                         break;
                                     }
 
@@ -153,10 +153,6 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                 dialog.setSelectedIndex(secilen);
             }
         });
-
-
-
-
 
 
         Gson gson = new GsonBuilder()
@@ -176,11 +172,11 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                 .setConverter(new GsonConverter(gson)).setLogLevel(RestAdapter.LogLevel.FULL).build();
         restInterface = restAdapter.create(newsinterface.class);
 
-        list=realmManager.getData();
-        if(list.size()> 0)
+        list = realmManager.getData();
+        if (list.size() > 0)
             getFromDb();
         else
-            gethaberler(1,47);
+            gethaberler(1, 47);
 
     }
 
@@ -191,22 +187,22 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         realmManager.close();
     }
 
-    private void  getFromDb(){
+    private void getFromDb() {
         Toast.makeText(MainActivity.this, "Veri tabanından", Toast.LENGTH_SHORT).show();
         newsadapter.clear();
         newsadapter.updateList(list);
 
     }
 
-    private void gethaberler(int page, int category){
-        restInterface.getNewsList(page,category,new Callback<Response>() {
+    private void gethaberler(int page, int category) {
+        restInterface.getNewsList(page, category, new Callback<Response>() {
             @Override
             public void success(Response jsonObject, retrofit.client.Response response) {
                 jsonObject.getData();
                 NewsSingleton.getInstance().setGetData(jsonObject.getData());
                 fillTop();
                 newsadapter.clear();
-                if(jsonObject.getData()!=null&&jsonObject.getData().size()>0) {
+                if (jsonObject.getData() != null && jsonObject.getData().size() > 0) {
                     newsadapter.updateList(jsonObject.getData());
 
                     Toast.makeText(MainActivity.this, "Web Servisten", Toast.LENGTH_SHORT).show();
@@ -239,18 +235,16 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         });
     }
 
-    private void fillTop(){
-        Handler handler=new Handler();
+    private void fillTop() {
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
-            public void run()
-            {
-                list=realmManager.getData();
+            public void run() {
+                list = realmManager.getData();
 
                 HashMap<String, String> url_maps = new HashMap<String, String>();
-                for (Data data : list)
-                {
-                    url_maps.put(String.valueOf(Html.fromHtml(data.getTitle())), "http:"+data.getImages().getPage());
+                for (Data data : list) {
+                    url_maps.put(String.valueOf(Html.fromHtml(data.getTitle())), "http:" + data.getImages().getPage());
 
                 }
 
@@ -272,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                     mDemoSlider.addSlider(textSliderView);
                 }
             }
-        },3000);
+        }, 3000);
 
     }
 
